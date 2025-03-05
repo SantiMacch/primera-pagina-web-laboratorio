@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Macchi</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #606c38;
+            color: #dda15e;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #283618;
+            padding: 20px;
+        }
+
+        section {
+            margin: 20px;
+            padding: 20px;
+            background-color: #283618;
+            border-radius: 10px;
+        }
+
+        img {
+            width: 300px;
+            height: auto;
+            border-radius: 10px;
+            margin: 10px;
+        }
+        a {
+            text-decoration: none;
+            color: #dda15e;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #606c38;
+            color: #fefae0;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        button:hover {
+            background-color: #dda15e;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Bienvenidos a la presentación de cuatriciclos</h1>
+    </header>
+
+    <section>
+        <h2>¿Qué es un cuatriciclo?</h2>
+        <p>Un cuatriciclo es un vehículo con cuatro ruedas, que se utiliza para el transporte de personas o carga, y que se mueve con la ayuda de un motor. A su vez, puede ser utilizado para correr o competir. Hoy en día existen diferentes tipos: Cross (velocidad con saltos), Rally (velocidad en terrenos medio planos), y Enduro (poca velocidad, pero terrenos difíciles entre montañas).</p>
+
+        <h2>Tipos de cuatriciclos</h2>
+
+        <img src="./imagenes/raptor 450.webp" alt="yamaha raptor 450" id="imagen">
+        <h2 id="nombre">Yamaha Raptor 450</h2>
+        <h3 id="descripcion">Este cuad es muy bueno para el cross porque es potente en velocidad y a su vez es liviano.</h3>
+        <a id="review" href="https://www.youtube.com/watch?v=DElf6RvbQig" >Haz click y ve una review y una ficha tecnica</a> 
+        <br>
+        <button id="cambio de cuad">Cambiar de cuad</button>
+    </section>
+
+    <script>
+        let indice = 0; 
+
+    const cuatriciclos = [
+        { nombre: "Yamaha Raptor 450", imagen: "./imagenes/raptor 450.webp", review: "https://www.youtube.com/watch?v=DElf6RvbQig", descripcion: "Este cuad es muy bueno para el cross porque es un cuad potente en velocidad y a su vez es liviano." },
+        { nombre: "Honda TRX 450", imagen: "./imagenes/trx 450.webp", review: "https://www.youtube.com/watch?v=p_BBjiTtzWo", descripcion: "Este cuad es muy bueno para el enduro apesar de su potencia porque tiene mucho torque que el raptor no tiene." },
+        { nombre: "Suzuki LTZ 400", imagen: "./imagenes/ltz 400.webp", review: "https://www.youtube.com/watch?v=12hUCLGxScs", descripcion: "Este cuad es muy bueno para el enduro porque tiene mucho torque y de fabrica es muy bueno para trepar piedras como una cabra." },
+        { nombre: "Yamaha Raptor 250", imagen: "./imagenes/raptor 250.webp", review: "https://www.youtube.com/watch?v=4nsWTZuNeIc", descripcion: "ste cuad es muy bueno para el cross y para el enduro este cuad es principalmente para aprender o para los nenes mas chicos devido a su tamaño y su facilidad de hacerles modificaciones." },
+        { nombre: "Yamaha Raptor 700R", imagen: "./imagenes/raptor 700 r.webp", review: "https://www.youtube.com/watch?v=KzqGpDsXpUQ", descripcion: "Este cuad es muy bueno para el rally porque tiene potencia y un tanque de nafta grande que le permite andar por muchos km sin parar, contra es muy pesado." }
+    ];
+
+    document.getElementById("cambio de cuad").addEventListener("click", () => {
+
+        indice = (indice + 1) % cuatriciclos.length; 
+
+        document.getElementById("imagen").src = cuatriciclos[indice].imagen;
+        document.getElementById("nombre").textContent = cuatriciclos[indice].nombre;
+        document.getElementById("descripcion").textContent = cuatriciclos[indice].descripcion;
+        document.getElementById("review").textContent = "Haz click y ve una review";
+        document.getElementById("review").href = cuatriciclos[indice].review;
+    });
+
+    </script>
+
+</body>
+</html>
